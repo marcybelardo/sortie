@@ -6,36 +6,26 @@
 
 int tests_run = 0;
 
-static char *merge_test() 
+static char *test_merge()
 {
     double test[] = {3, 2, 1};
-
-    mergesort(test, 3);
-
-    mu_assert("Merge sort failed!", (test[0] == 1
-                                    && test[1] == 2
-                                    && test[2] == 3));
-
+    mergesort(test, 3); 
+    mu_assert("Merge sort failed.", (test[0] == 1 && test[1] == 2 && test[2] == 3));
     return 0;
 }
 
-static char *quick_test() 
+static char *test_quick()
 {
     double test[] = {3, 2, 1};
-
     quicksort(test, 0, 2);
-
-    mu_assert("Quick sort failed!", (test[0] == 1
-                                    && test[1] == 2
-                                    && test[2] == 3));
-
+    mu_assert("Quicksort failed.", (test[0] == 1 && test[1] == 2 && test[2] == 3));
     return 0;
 }
 
-static char *all_tests() 
+static char *all_tests()
 {
-    mu_run_test(merge_test);
-    mu_run_test(quick_test);
+    mu_run_test(test_merge);
+    mu_run_test(test_quick);
     return 0;
 }
 
